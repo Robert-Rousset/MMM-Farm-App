@@ -1,0 +1,19 @@
+body {
+    background-image: url(../Images/Eggs.jpg);
+    background-size: 100%;
+    /* background: no-repeat; */
+    background-size: auto;
+}
+.mainbit{
+
+    width: 300px;
+    margin: auto;
+}
+.stuff{
+    padding-top: 100px;
+    height: 100vh;
+}
+.select{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
