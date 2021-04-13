@@ -1,0 +1,6 @@
+body {
+    background-image: url(../Images/Eggs.jpg);
+    background-size: 100%;
+    /* background: no-repeat; */
+    background-size: auto;
+}
