@@ -4,6 +4,11 @@ body {
     /* background: no-repeat; */
     background-size: auto;
 }
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
 .mainbit{
 
     width: 300px;
