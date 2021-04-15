@@ -46,3 +46,7 @@ main{
     width: 20px;
     background-color: red;
 }
+#map {
+    height: 400px;
+    width: 100%;
+}
