@@ -41,3 +41,8 @@ main{
 #card {
     margin: 10px;
 }
+.clearButton{
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}

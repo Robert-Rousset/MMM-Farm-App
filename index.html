@@ -21,7 +21,7 @@
                 <div class="box column" id="card">
                     <div class="columns">
                         <div class="column">
-                            <select class="select">
+                            <select id="eggNumber" class="select">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -33,21 +33,21 @@
                             </select>
                         </div>
                         <div class="column is-10">
-                            <select class="select products">
+                            <select id="eggSize" class="select products">
                                 <!-- <option value="">CHOOSE A PRODUCT</option> -->
-                                <option value="Large">Large $5</option>
-                                <option value="Extra Large">Extra Large $5.5</option>
-                                <option value="JUMBO">JUMBO! $6</option>
+                                <option value="Dozen Large">Large $5</option>
+                                <option value="Dozen Extra Large">Extra Large $5.5</option>
+                                <option value="Dozen Jumbo">JUMBO! $6</option>
                             </select>
 
                         </div>
                     </div>
-                    <button class="button is-dark is-fullwidth">Order Up!</button>
+                    <button id="orderUp" class="button is-dark is-fullwidth">Order Up!</button>
                 </div>
                 <div class="box column"  id="card">
                     <div class="columns">
                         <div class="column">
-                            <select class="select">
+                            <select id="bagNumber" class="select">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -60,14 +60,14 @@
                         </div>
                         <h2 class="column is-9">Bags of Mannure  $4.99</h2>
                     </div>
-                    <button class="button is-dark is-fullwidth">Gimme bags</button>
+                    <button id="bagsButton" class="button is-dark is-fullwidth">Gimme bags</button>
 
                 </div>
 
                 <div class="box column" id="card">
                     <div class="columns">
                         <div class="column">
-                            <select class="select">
+                            <select id="chickenNumber" class="select">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -80,21 +80,15 @@
                         </div>
                         <h2 class="column is-9">Chickens $4.99</h2>
                     </div>
-                    <button class="button is-dark is-fullwidth">Gimme Chickens</button>
+                    <button id="chickenButton" class="button is-dark is-fullwidth">Gimme Chickens</button>
                 </div>
             </section>
 
 
             <section>
                 <h2 class="is-size-3">View Order</h2>
-                <div>
-                    <br>
-                    <br>
-            <p>ALL THE ORDERS HERE</p>
-            <br>
-            <br>
+                <div class="orderList">
                 </div>
-
             </section>
 
 
@@ -115,5 +109,6 @@
         </main>
     </div>
 </body>
+<script src="./Assets/script.js"></script>
 
 </html>
