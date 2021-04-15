@@ -29,6 +29,11 @@ main{
 .select{
     margin-left: 10px;
     margin-bottom: 20px;
+
+}
+.products {
+    width: 200px;
+
 }
 #mainContent {
     margin-top: 20px;
