@@ -1,24 +1,43 @@
+::root{
+    --primary: rgb(118,168,192);
+    --secondary: rgb(37, 150, 190);
+    --dark: rgb(47, 50, 49);
+    --light: rgb(226, 225, 196);
+    --complimentary: rgb(184, 116, 96);
+}
+
 body {
     background-image: url(../Images/Eggs.jpg);
-    background-size: 100%;
     /* background: no-repeat; */
-    background-size: auto;
+    background-size: 2000px;
+    /* background-position-y: -400px ; */
 }
 h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 5rem;
     text-align: center;
 }
-.mainbit{
-
-    width: 300px;
+main{
+    display: flex;
+    width: 1000px;
     margin: auto;
+    height: fit-content;
 }
 .stuff{
-    padding-top: 100px;
+    padding-top: 50px;
     height: 100vh;
 }
 .select{
     margin-left: 10px;
     margin-bottom: 20px;
+
+}
+.products {
+    width: 200px;
+
+}
+#mainContent {
+    margin-top: 20px;
+}
+#card {
+    margin: 10px;
 }
