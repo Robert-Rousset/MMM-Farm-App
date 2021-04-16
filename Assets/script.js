@@ -53,3 +53,13 @@ function chickenButtonFunction(){
         chickenOrderList.remove()
         clearButton.remove()
 }}
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -32.2115194, lng: 115.863934, },
+    zoom: 14,
+  });
+  console.log(map)
+}
