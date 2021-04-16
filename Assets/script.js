@@ -10,6 +10,8 @@ var chickenButton = document.querySelector('#chickenButton')
 
 var orderList = document.querySelector('.orderList')
 
+var searchAddressButton = document.querySelector('.searchAddressButton')
+
 orderUpButton.addEventListener('click', orderUpFunction)
 function orderUpFunction(){
     // creating an element p //
@@ -54,12 +56,28 @@ function chickenButtonFunction(){
         clearButton.remove()
 }}
 
-let map;
-
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -32.2115194, lng: 115.863934, },
+  //TO CREATE THE MAP AND PLACE IT ON THE DIV WITH ID MAP
+  let map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -32.210249, lng: 115.868065},
     zoom: 14,
   });
   console.log(map)
+  var infoWindow = new google.maps.InfoWindow();
+//THE FUNCTION THAT CREATES MARKERS
+function createMarker(options, html) {
+  var marker = new google.maps.Marker(options); 
+    google.maps.event.addListener(marker, "click", function () {
+      infoWindow.setContent(html);
+      infoWindow.open(options.map, this);
+    });
+  return marker;
 }
+//PLACING THE MARKER IN THE DESIRED DESTINATION
+var marker = createMarker({
+  position: new google.maps.LatLng(-32.210249, 115.868065),
+  map: map
+}, "<h1>MMM Farm</h1>");
+}
+
+
