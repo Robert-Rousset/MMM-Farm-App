@@ -11,9 +11,11 @@ var chickenButton = document.querySelector('#chickenButton')
 var orderList = document.querySelector('.orderList')
 // search property
 var directionButton = document.querySelector('.searchAddressButton');
-var searchBar = document.querySelector('#address')
+var searchBar = document.querySelector('#searchAddress')
 let directionsService;
 let directionsDisplay;
+
+
 
 orderUpButton.addEventListener('click', orderUpFunction)
 function orderUpFunction(){
@@ -83,6 +85,21 @@ var marker = createMarker({
   position: new google.maps.LatLng(-32.210249, 115.868065),
   map: map
 }, "<h1>MMM Farm</h1>");
+
+directionButton.addEventListener('click' ,getLocation);
+function getLocation(){
+  navigator.geolocation.getCurrentPosition(function(position){
+    directionsInfo.innerHTML=`start:${position.coords.latitude} ,${position.coords.longitude}`;
+    var pos =new google.maps.latlng(position.coords.latitude ,position.coords.longitude);
+  
+  });
+}
+
+
+var autocomplete = new google.maps.places.Autocomplete(searchBar)
+autocomplete.bindTo('bounds',map)
+
+
 directionsService= new google.maps.DirectionsService();
 directionsDisplay=  new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(directionsMap)
@@ -97,7 +114,7 @@ var infoWindow = new google.maps.InfoWindow();
 function calcRoute(start,destination){
   let request = {
     origin: start,
-    destination: destination,
+    destination: google.map.latlng(-32.210249, 115.868065 ),
     travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(Response, status){
@@ -108,10 +125,5 @@ function calcRoute(start,destination){
   })
 
 }
-var autocomplete = new google.map.places.Autocomplete(searchBar)
-autocomplete.bindTo('bounds',map)
-}
 
-   
-      
-    
+}
