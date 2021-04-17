@@ -50,3 +50,6 @@ main{
     height: 400px;
     width: 100%;
 }
+.time {
+    font-size: 80px;
+}
