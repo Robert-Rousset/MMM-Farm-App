@@ -11,7 +11,15 @@ var chickenButton = document.querySelector('#chickenButton')
 var orderList = document.querySelector('.orderList')
 // search property
 var directionButton = document.querySelector('.searchAddressButton');
+<<<<<<< HEAD
+var searchBar = document.querySelector('#searchAddress')
+let directionsService;
+let directionsDisplay;
+=======
 var searchBar = document.querySelector('#searchAddress');
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
+
+
 
 var timePrinted = document.querySelector('.time')
 
@@ -65,6 +73,43 @@ function initMap() {
     center: { lat: -32.210249, lng: 115.868065},
     zoom: 14,
   });
+<<<<<<< HEAD
+ 
+ 
+//THE FUNCTION THAT CREATES MARKERS
+function createMarker(options, html) {
+  var marker = new google.maps.Marker(options); 
+    google.maps.event.addListener(marker, "click", function () {
+      infoWindow.setContent(html);
+      infoWindow.open(options.map, this);
+    });
+  return marker;
+}
+//PLACING THE MARKER IN THE DESIRED DESTINATION
+var marker = createMarker({
+  position: new google.maps.LatLng(-32.210249, 115.868065),
+  map: map
+}, "<h1>MMM Farm</h1>");
+
+directionButton.addEventListener('click' ,getLocation);
+function getLocation(){
+  navigator.geolocation.getCurrentPosition(function(position){
+    directionsInfo.innerHTML=`start:${position.coords.latitude} ,${position.coords.longitude}`;
+    var pos =new google.maps.latlng(position.coords.latitude ,position.coords.longitude);
+  
+  });
+}
+
+
+var autocomplete = new google.maps.places.Autocomplete(searchBar)
+autocomplete.bindTo('bounds',map)
+
+
+directionsService= new google.maps.DirectionsService();
+directionsDisplay=  new google.maps.DirectionsRenderer();
+directionsDisplay.setMap(directionsMap)
+let destination = google.map.latlng (-32.210249, 115.868065 )
+=======
   function searchedMarker(myHousesLocation){
     var marker = new google.maps.Marker({
       position: myHousesLocation,
@@ -85,6 +130,7 @@ function initMap() {
     position: new google.maps.LatLng(-32.210249, 115.868065),
     map: map
   }, "<h1>MMM Farm</h1>");
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
 
   directionButton.addEventListener('click', getSearchValue)
   function getSearchValue(){
@@ -101,7 +147,20 @@ function initMap() {
   }).then(function(finalResponse){
 
 
+<<<<<<< HEAD
+function calcRoute(start,destination){
+  let request = {
+    origin: start,
+    destination: google.map.latlng(-32.210249, 115.868065 ),
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(Response, status){
+    if(status= 'ok'){
+      directionsDisplay.setDirection(Response);
+    }
+=======
     var myHousesLocation = finalResponse.results[0].geometry.location
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
 
     searchedMarker(myHousesLocation)
     calcRoute()
@@ -128,9 +187,14 @@ function calcRoute(){
     timePrinted.append(customerTime)
   })
 }
+<<<<<<< HEAD
+
+}
+=======
   var autocomplete = new google.maps.places.Autocomplete(searchBar)
   autocomplete.bindTo('bounds', map)
 }
 
 
     
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
