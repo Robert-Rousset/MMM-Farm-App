@@ -11,9 +11,13 @@ var chickenButton = document.querySelector('#chickenButton')
 var orderList = document.querySelector('.orderList')
 // search property
 var directionButton = document.querySelector('.searchAddressButton');
+<<<<<<< HEAD
 var searchBar = document.querySelector('#searchAddress')
 let directionsService;
 let directionsDisplay;
+=======
+var searchBar = document.querySelector('#searchAddress');
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
 
 
 
@@ -62,13 +66,12 @@ function chickenButtonFunction(){
 }}
 
 function initMap() {
-  
- 
   //TO CREATE THE MAP AND PLACE IT ON THE DIV WITH ID MAP
   let map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -32.210249, lng: 115.868065},
     zoom: 14,
   });
+<<<<<<< HEAD
  
  
 //THE FUNCTION THAT CREATES MARKERS
@@ -104,13 +107,45 @@ directionsService= new google.maps.DirectionsService();
 directionsDisplay=  new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(directionsMap)
 let destination = google.map.latlng (-32.210249, 115.868065 )
+=======
+  function searchedMarker(myHousesLocation){
+    var marker = new google.maps.Marker({
+      position: myHousesLocation,
+      map: map
+    })
+  }
+  //THE FUNCTION THAT CREATES MARKERS
+  function createMarker(options, html) {
+    var marker = new google.maps.Marker(options); 
+      google.maps.event.addListener(marker, "click", function () {
+        infoWindow.setContent(html);
+        infoWindow.open(options.map, this);
+      });
+    return marker;
+  }
+  //PLACING THE MARKER IN THE DESIRED DESTINATION
+  var marker = createMarker({
+    position: new google.maps.LatLng(-32.210249, 115.868065),
+    map: map
+  }, "<h1>MMM Farm</h1>");
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
 
-calcRoute(location, destination)
+  directionButton.addEventListener('click', getSearchValue)
+  function getSearchValue(){
+    var inputLocation = searchBar.value
+    geocode(inputLocation)
+  }
 
-console.log(map)
-var infoWindow = new google.maps.InfoWindow();
+  function geocode(inputLocation){
+  
+    var geocoderAPIUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="+inputLocation+"&key=AIzaSyBfg5w_o5_G8TUh8qvxtowKePezRpQzcpU"
 
+  fetch(geocoderAPIUrl).then(function (response){
+    return response.json()
+  }).then(function(finalResponse){
+    console.log(finalResponse)
 
+<<<<<<< HEAD
 function calcRoute(start,destination){
   let request = {
     origin: start,
@@ -121,9 +156,21 @@ function calcRoute(start,destination){
     if(status= 'ok'){
       directionsDisplay.setDirection(Response);
     }
+=======
+    var myHousesLocation = finalResponse.results[0].geometry.location
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
 
+    searchedMarker(myHousesLocation)
   })
+}
+<<<<<<< HEAD
 
 }
-
+=======
+  var autocomplete = new google.maps.places.Autocomplete(searchBar)
+  autocomplete.bindTo('bounds', map)
 }
+
+
+    
+>>>>>>> a471ddc028e30017ee76a22871a35a10ea9b6118
