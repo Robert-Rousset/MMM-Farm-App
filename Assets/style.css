@@ -9,7 +9,7 @@
 body {
     background-image: url(../Images/Eggs.jpg);
     /* background: no-repeat; */
-    background-size: 2000px;
+    background-size: 3000px;
     /* background-position-y: -400px ; */
 }
 h1 {
@@ -24,7 +24,8 @@ main{
 }
 .stuff{
     padding-top: 50px;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 100px;
 }
 .select{
     margin-left: 10px;
