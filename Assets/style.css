@@ -43,24 +43,29 @@ main{
     margin: 10px;
 }
 .orderList {
-    height: 200px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    border-top: rgb(212, 212, 212) 1px solid;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 30px;
+}
+.order {
+    margin-right: 30px;
 }
 .clearButton{
-    height: 20px;
-    width: 20px;
-    background-color: red;
+    height: 25px;
+    width: 33px;
+    background-image: url('../Images/clearbtn.png');
+    background-size: 40px;
+    border: none;
 }
 #map {
     height: 400px;
     width: 100%;
 }
 .time {
-    font-size: 80px;
+    height: fit-content;
+    font-size: 30px;
 }
-
-/* @media screen and (max-width: 992px) {
-    #box{
-        width: 100%;
-    }
-  }
-   */

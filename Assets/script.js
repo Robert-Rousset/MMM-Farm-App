@@ -9,12 +9,16 @@ var chickenNumber = document.querySelector('#chickenNumber')
 var chickenButton = document.querySelector('#chickenButton')
 
 var orderList = document.querySelector('.orderList')
+var totalCostShow = document.querySelector('.total')
 // search property
 var directionButton = document.querySelector('.searchAddressButton');
 var searchBar = document.querySelector('#searchAddress');
 
 var timePrinted = document.querySelector('.time')
 
+var finalSubmitButton = document.querySelector('#finalSubmit')
+
+var number = 0;
 
 orderUpButton.addEventListener('click', orderUpFunction)
 function orderUpFunction(){
@@ -23,26 +27,26 @@ function orderUpFunction(){
     eggOrderList.textContent = eggNumber.value + " " + eggSize.value +" "
     // appending this p item to the orderList
     orderList.append(eggOrderList)
+    eggOrderList.classList.add('order')
     // To calculate the total
     if (eggSize.value == "Dozen Large"){
-      var totalCost1 = Math.floor(5 * eggNumber.value)
+      var totalCost = Math.floor(5 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost1 + ".00"
+      showCost.textContent = "$" + totalCost + ".00"
       eggOrderList.append(showCost)
     }
     if (eggSize.value == "Dozen Extra Large"){
-      var totalCost2 = Math.round(5.500 * 100) / 100 * eggNumber.value
+      var totalCost = Math.round(5.500 * 100) / 100 * eggNumber.value
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost2
+      showCost.textContent = "$" + totalCost
       eggOrderList.append(showCost)
     }
     if (eggSize.value == "Dozen Jumbo"){
-      var totalCost3 = Math.floor(6 * eggNumber.value)
+      var totalCost = Math.floor(6 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost3 + ".00"
+      showCost.textContent = "$" + totalCost + ".00"
       eggOrderList.append(showCost)
     }
-
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
     eggOrderList.append(clearButton)
@@ -61,10 +65,10 @@ function gimmeBagsFunction(){
     var showCost = document.createElement('p')
     showCost.textContent = "$" + totalCost + ".00"
     bagOrderList.append(showCost)
-
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
     bagOrderList.append(clearButton)
+    bagOrderList.classList.add('order')
     clearButton.addEventListener('click', clearButtonFunction)
     function clearButtonFunction(){
         bagOrderList.remove()
@@ -80,9 +84,9 @@ function chickenButtonFunction(){
     var showCost = document.createElement('p')
     showCost.textContent = "$" + totalCost + ".00"
     chickenOrderList.append(showCost)
-
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
+    chickenOrderList.classList.add('order')
     chickenOrderList.append(clearButton)
     clearButton.addEventListener('click', clearButtonFunction)
     function clearButtonFunction(){
@@ -155,7 +159,7 @@ function calcRoute(){
     var timeTravelled = result.routes[0].legs[0].duration.text
     console.log(timeTravelled)
     var customerTime = document.createElement('h1')
-    customerTime.textContent = "Estimated Time of Arrival: " + timeTravelled;
+    customerTime.textContent = "You are expected to pick up your order in: " + timeTravelled;
     timePrinted.append(customerTime)
   })
 }
@@ -163,4 +167,12 @@ function calcRoute(){
   autocomplete.bindTo('bounds', map)
 }
 
-
+finalSubmitButton.addEventListener('click', sendTheMail)
+function sendTheMail(){Email.send({
+  SecureToken:"c7379b0d-c90c-46bc-b834-12b3016e4f0f",
+  To: 'whyisrob@hotmail.com',
+  From: 'triplemeggs@gmail.com',
+  Subject: 'ORDER UP!',
+  Body: "This email is to let you know that a customer is about to arrive!",
+}).then();
+}
