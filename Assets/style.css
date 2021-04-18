@@ -18,7 +18,7 @@ h1 {
 }
 main{
     display: flex;
-    width: 1000px;
+    width: 50%;
     margin: auto;
     height: fit-content;
 }
@@ -33,7 +33,7 @@ main{
 
 }
 .products {
-    width: 200px;
+    width: 90%;
 
 }
 #mainContent {
@@ -41,6 +41,9 @@ main{
 }
 #card {
     margin: 10px;
+}
+.orderList {
+    height: 200px;
 }
 .clearButton{
     height: 20px;
@@ -54,3 +57,10 @@ main{
 .time {
     font-size: 80px;
 }
+
+/* @media screen and (max-width: 992px) {
+    #box{
+        width: 100%;
+    }
+  }
+   */
