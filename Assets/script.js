@@ -22,6 +22,26 @@ function orderUpFunction(){
     eggOrderList.textContent = eggNumber.value + " " + eggSize.value +" "
     // appending this p item to the orderList
     orderList.append(eggOrderList)
+    // To calculate the total
+    if (eggSize.value == "Dozen Large"){
+      var totalCost = Math.floor(5 * eggNumber.value)
+      var showCost = document.createElement('p')
+      showCost.textContent = "$" + totalCost + ".00"
+      eggOrderList.append(showCost)
+    }
+    if (eggSize.value == "Dozen Extra Large"){
+      var totalCost = Math.floor(5.5 * eggNumber.value)
+      var showCost = document.createElement('p')
+      showCost.textContent = "$" + totalCost + ".00"
+      eggOrderList.append(showCost)
+    }
+    if (eggSize.value == "Dozen Jumbo"){
+      var totalCost = Math.floor(6 * eggNumber.value)
+      var showCost = document.createElement('p')
+      showCost.textContent = "$" + totalCost + ".00"
+      eggOrderList.append(showCost)
+    }
+
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
     eggOrderList.append(clearButton)
@@ -36,6 +56,11 @@ function gimmeBagsFunction(){
     var bagOrderList = document.createElement('p')
     bagOrderList.textContent = bagNumber.value + " Mannure Bags ";
     orderList.append(bagOrderList)
+    var totalCost = Math.floor(5 * bagNumber.value)
+    var showCost = document.createElement('p')
+    showCost.textContent = "$" + totalCost + ".00"
+    bagOrderList.append(showCost)
+
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
     bagOrderList.append(clearButton)
@@ -50,6 +75,11 @@ function chickenButtonFunction(){
     var chickenOrderList = document.createElement('p')
     chickenOrderList.textContent = chickenNumber.value + " Chickens "
     orderList.append(chickenOrderList)
+    var totalCost = Math.floor(5 * chickenNumber.value)
+    var showCost = document.createElement('p')
+    showCost.textContent = "$" + totalCost + ".00"
+    chickenOrderList.append(showCost)
+
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
     chickenOrderList.append(clearButton)
