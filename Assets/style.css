@@ -9,7 +9,7 @@
 body {
     background-image: url(../Images/Eggs.jpg);
     /* background: no-repeat; */
-    background-size: 2000px;
+    background-size: 3000px;
     /* background-position-y: -400px ; */
 }
 h1 {
@@ -18,13 +18,14 @@ h1 {
 }
 main{
     display: flex;
-    width: 1000px;
+    width: 50%;
     margin: auto;
     height: fit-content;
 }
 .stuff{
     padding-top: 50px;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 100px;
 }
 .select{
     margin-left: 10px;
@@ -32,7 +33,7 @@ main{
 
 }
 .products {
-    width: 200px;
+    width: 90%;
 
 }
 #mainContent {
@@ -40,6 +41,9 @@ main{
 }
 #card {
     margin: 10px;
+}
+.orderList {
+    height: 200px;
 }
 .clearButton{
     height: 20px;
@@ -50,3 +54,13 @@ main{
     height: 400px;
     width: 100%;
 }
+.time {
+    font-size: 80px;
+}
+
+/* @media screen and (max-width: 992px) {
+    #box{
+        width: 100%;
+    }
+  }
+   */

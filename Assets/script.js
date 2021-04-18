@@ -13,6 +13,8 @@ var orderList = document.querySelector('.orderList')
 var directionButton = document.querySelector('.searchAddressButton');
 var searchBar = document.querySelector('#searchAddress');
 
+var timePrinted = document.querySelector('.time')
+
 orderUpButton.addEventListener('click', orderUpFunction)
 function orderUpFunction(){
     // creating an element p //
@@ -97,16 +99,36 @@ function initMap() {
   fetch(geocoderAPIUrl).then(function (response){
     return response.json()
   }).then(function(finalResponse){
-    console.log(finalResponse)
+
 
     var myHousesLocation = finalResponse.results[0].geometry.location
 
     searchedMarker(myHousesLocation)
+    calcRoute()
+  })
+}
+
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();
+
+directionsDisplay.setMap(map)
+
+function calcRoute(){
+  var request = {
+    origin: searchBar.value,
+    destination: { lat: -32.210249, lng: 115.868065 },
+    travelMode: google.maps.TravelMode.DRIVING,
+  }
+
+  directionsService.route(request, function (result){
+    var timeTravelled = result.routes[0].legs[0].duration.text
+    console.log(timeTravelled)
+    var customerTime = document.createElement('h1')
+    customerTime.textContent = "Estimated Time of Arrival: " + timeTravelled;
+    timePrinted.append(customerTime)
   })
 }
   var autocomplete = new google.maps.places.Autocomplete(searchBar)
   autocomplete.bindTo('bounds', map)
 }
 
-
-    
