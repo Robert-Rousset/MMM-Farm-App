@@ -17,6 +17,7 @@ var searchBar = document.querySelector('#searchAddress');
 var timePrinted = document.querySelector('.time')
 
 var finalSubmitButton = document.querySelector('#finalSubmit')
+var addingDollarSymbol = document.querySelector('.totalCost')
 
 var number = 0;
 
@@ -34,18 +35,21 @@ function orderUpFunction(){
       var showCost = document.createElement('p')
       showCost.textContent = "$" + totalCost + ".00"
       eggOrderList.append(showCost)
+      grandTotal(totalCost)
     }
     if (eggSize.value == "Dozen Extra Large"){
       var totalCost = Math.round(5.500 * 100) / 100 * eggNumber.value
       var showCost = document.createElement('p')
       showCost.textContent = "$" + totalCost
       eggOrderList.append(showCost)
+      grandTotal(totalCost)
     }
     if (eggSize.value == "Dozen Jumbo"){
       var totalCost = Math.floor(6 * eggNumber.value)
       var showCost = document.createElement('p')
       showCost.textContent = "$" + totalCost + ".00"
       eggOrderList.append(showCost)
+      grandTotal(totalCost)
     }
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
@@ -69,6 +73,7 @@ function gimmeBagsFunction(){
     clearButton.classList.add('clearButton')
     bagOrderList.append(clearButton)
     bagOrderList.classList.add('order')
+    grandTotal(totalCost)
     clearButton.addEventListener('click', clearButtonFunction)
     function clearButtonFunction(){
         bagOrderList.remove()
@@ -88,11 +93,18 @@ function chickenButtonFunction(){
     clearButton.classList.add('clearButton')
     chickenOrderList.classList.add('order')
     chickenOrderList.append(clearButton)
+    grandTotal(totalCost)
     clearButton.addEventListener('click', clearButtonFunction)
     function clearButtonFunction(){
         chickenOrderList.remove()
         clearButton.remove()
 }}
+
+function grandTotal(totalCost) {
+  var newTotal = Math.floor(Number(totalCostShow.textContent) + Number(totalCost))
+  addingDollarSymbol.textContent = "Total Cost: $" + newTotal + ".00"
+  totalCostShow.textContent = newTotal
+}
 
 function initMap() {
   //TO CREATE THE MAP AND PLACE IT ON THE DIV WITH ID MAP
