@@ -15,6 +15,7 @@ var searchBar = document.querySelector('#searchAddress');
 
 var timePrinted = document.querySelector('.time')
 
+
 orderUpButton.addEventListener('click', orderUpFunction)
 function orderUpFunction(){
     // creating an element p //
@@ -24,21 +25,21 @@ function orderUpFunction(){
     orderList.append(eggOrderList)
     // To calculate the total
     if (eggSize.value == "Dozen Large"){
-      var totalCost = Math.floor(5 * eggNumber.value)
+      var totalCost1 = Math.floor(5 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost + ".00"
+      showCost.textContent = "$" + totalCost1 + ".00"
       eggOrderList.append(showCost)
     }
     if (eggSize.value == "Dozen Extra Large"){
-      var totalCost = Math.floor(5.5 * eggNumber.value)
+      var totalCost2 = Math.round(5.500 * 100) / 100 * eggNumber.value
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost + ".00"
+      showCost.textContent = "$" + totalCost2
       eggOrderList.append(showCost)
     }
     if (eggSize.value == "Dozen Jumbo"){
-      var totalCost = Math.floor(6 * eggNumber.value)
+      var totalCost3 = Math.floor(6 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost + ".00"
+      showCost.textContent = "$" + totalCost3 + ".00"
       eggOrderList.append(showCost)
     }
 
