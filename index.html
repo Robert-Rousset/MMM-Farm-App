@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="Assets/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
 </head>
 
 <body>
@@ -89,13 +91,15 @@
                 <h2 class="is-size-3">Your Order:</h2>
                 <div class="orderList">
                 </div>
-                <div class="total">
-
-                </div>
+     
             </section>
 
+            <section class="yeah">
+            <h2 class="totalCost">Total Cost: <span class="total"></span></h2>
 
-            <section>
+            </section>
+
+            <section id="mapbit">
                 <h2 class="is-size-3">MAP</h2>
                 <div>
                     <label>Location:</label>
@@ -105,14 +109,13 @@
                 <div id="map">
                     THIS IS DA MAP
                 </div>
-   
-                <button class="button is-dark is-fullwidth">Submit order and time of arrival</button>
+
+                <div class="time">
+                </div>
+
+                <button class="button is-dark is-fullwidth" id="finalSubmit">Submit order and time of arrival</button>
+                
             </section>
-
-            <div class="time">
-            </div>
-    
-
 
         </main>
     </div>
@@ -121,4 +124,5 @@
 <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfg5w_o5_G8TUh8qvxtowKePezRpQzcpU&libraries=places&callback=initMap">
 </script>
+
 </html>
