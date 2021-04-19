@@ -188,7 +188,7 @@ function calcRoute(){
 
 finalSubmitButton.addEventListener('click', sendTheMail)
 function sendTheMail(){
-  finalSubmitButton.textContent = "Your order has been sent. see you soon!"
+  finalSubmitButton.textContent = "Thank You! Your order has been sent. see you soon!"
   
   Email.send({
   SecureToken:"c7379b0d-c90c-46bc-b834-12b3016e4f0f",
