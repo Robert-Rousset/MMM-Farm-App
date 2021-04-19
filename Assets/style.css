@@ -18,7 +18,8 @@ h1 {
 }
 main{
     display: flex;
-    width: 50%;
+    max-width: 1000px;
+    width: fit-content;
     margin: auto;
     height: fit-content;
 }
