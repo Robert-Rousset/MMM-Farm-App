@@ -187,11 +187,13 @@ function calcRoute(){
 }
 
 finalSubmitButton.addEventListener('click', sendTheMail)
-function sendTheMail(){Email.send({
+function sendTheMail(){
+  finalSubmitButton.textContent = "Your order has been sent. see you soon!"
+  
+  Email.send({
   SecureToken:"c7379b0d-c90c-46bc-b834-12b3016e4f0f",
-  To: 'whyisrob@hotmail.com',
+  To: 'triplemeggs@gmail.com',
   From: 'triplemeggs@gmail.com',
   Subject: 'ORDER UP!',
-  Body: "This email is to let you know that a customer is about to arrive!",
-}).then();
-}
+  Body: "Customer Due to arrive soon",
+}).then()}
