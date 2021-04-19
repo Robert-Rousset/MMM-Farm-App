@@ -58,6 +58,7 @@ function orderUpFunction(){
     function clearButtonFunction(){
         eggOrderList.remove()
         clearButton.remove()
+        takeOffTotal(totalCost)
 }}
 
 gimmeBagsButton.addEventListener('click', gimmeBagsFunction)
@@ -78,6 +79,7 @@ function gimmeBagsFunction(){
     function clearButtonFunction(){
         bagOrderList.remove()
         clearButton.remove()
+        takeOffTotal(totalCost)
 }}
 
 chickenButton.addEventListener('click', chickenButtonFunction)
@@ -98,10 +100,16 @@ function chickenButtonFunction(){
     function clearButtonFunction(){
         chickenOrderList.remove()
         clearButton.remove()
+        takeOffTotal(totalCost)
 }}
 
 function grandTotal(totalCost) {
   var newTotal = Math.floor(Number(totalCostShow.textContent) + Number(totalCost))
+  addingDollarSymbol.textContent = "Total Cost: $" + newTotal + ".00"
+  totalCostShow.textContent = newTotal
+}
+function takeOffTotal(totalCost){
+  var newTotal = Math.floor(Number(totalCostShow.textContent) - Number(totalCost))
   addingDollarSymbol.textContent = "Total Cost: $" + newTotal + ".00"
   totalCostShow.textContent = newTotal
 }
@@ -112,26 +120,25 @@ function initMap() {
     center: { lat: -32.210249, lng: 115.868065},
     zoom: 14,
   });
+
+  var infowindow = new google.maps.InfoWindow({
+    content: "<h1>MMM Farm</h1>",
+  });
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(-32.210249, 115.868065),
+    map,
+  });
+  marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
+
+
   function searchedMarker(myHousesLocation){
     var marker = new google.maps.Marker({
       position: myHousesLocation,
       map: map
     })
   }
-  //THE FUNCTION THAT CREATES MARKERS
-  function createMarker(options, html) {
-    var marker = new google.maps.Marker(options); 
-      google.maps.event.addListener(marker, "click", function () {
-        infoWindow.setContent(html);
-        infoWindow.open(options.map, this);
-      });
-    return marker;
-  }
-  //PLACING THE MARKER IN THE DESIRED DESTINATION
-  var marker = createMarker({
-    position: new google.maps.LatLng(-32.210249, 115.868065),
-    map: map
-  }, "<h1>MMM Farm</h1>");
 
   directionButton.addEventListener('click', getSearchValue)
   function getSearchValue(){
