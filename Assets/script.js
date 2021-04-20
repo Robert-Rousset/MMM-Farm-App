@@ -10,6 +10,9 @@ var chickenButton = document.querySelector('#chickenButton')
 
 var orderList = document.querySelector('.orderList')
 var totalCostShow = document.querySelector('.total')
+var allOrders = document.querySelector('#orderSection')
+var allOrdersTotalCost = document.querySelector('.yeah')
+
 // search property
 var directionButton = document.querySelector('.searchAddressButton');
 var searchBar = document.querySelector('#searchAddress');
@@ -33,21 +36,21 @@ function orderUpFunction(){
     if (eggSize.value == "Dozen Large"){
       var totalCost = Math.floor(5 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost + ".00"
+      showCost.textContent = "$" + totalCost + ".00." + "\t"
       eggOrderList.append(showCost)
       grandTotal(totalCost)
     }
     if (eggSize.value == "Dozen Extra Large"){
       var totalCost = Math.round(5.500 * 100) / 100 * eggNumber.value
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost
+      showCost.textContent = "$" + totalCost + ".\t"
       eggOrderList.append(showCost)
       grandTotal(totalCost)
     }
     if (eggSize.value == "Dozen Jumbo"){
       var totalCost = Math.floor(6 * eggNumber.value)
       var showCost = document.createElement('p')
-      showCost.textContent = "$" + totalCost + ".00"
+      showCost.textContent = "$" + totalCost + ".00." + "\t"
       eggOrderList.append(showCost)
       grandTotal(totalCost)
     }
@@ -68,7 +71,7 @@ function gimmeBagsFunction(){
     orderList.append(bagOrderList)
     var totalCost = Math.floor(5 * bagNumber.value)
     var showCost = document.createElement('p')
-    showCost.textContent = "$" + totalCost + ".00"
+    showCost.textContent = "$" + totalCost + ".00." + "\t"
     bagOrderList.append(showCost)
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
@@ -89,7 +92,7 @@ function chickenButtonFunction(){
     orderList.append(chickenOrderList)
     var totalCost = Math.floor(5 * chickenNumber.value)
     var showCost = document.createElement('p')
-    showCost.textContent = "$" + totalCost + ".00"
+    showCost.textContent = "$" + totalCost + ".00." + "\t"
     chickenOrderList.append(showCost)
     var clearButton = document.createElement('button')
     clearButton.classList.add('clearButton')
@@ -132,14 +135,12 @@ function initMap() {
     infowindow.open(map, marker);
   });
 
-
   function searchedMarker(myHousesLocation){
     var marker = new google.maps.Marker({
       position: myHousesLocation,
       map: map
     })
   }
-
   directionButton.addEventListener('click', getSearchValue)
   function getSearchValue(){
     var inputLocation = searchBar.value
@@ -153,10 +154,7 @@ function initMap() {
   fetch(geocoderAPIUrl).then(function (response){
     return response.json()
   }).then(function(finalResponse){
-
-
     var myHousesLocation = finalResponse.results[0].geometry.location
-
     searchedMarker(myHousesLocation)
     calcRoute()
   })
@@ -178,22 +176,23 @@ function calcRoute(){
     var timeTravelled = result.routes[0].legs[0].duration.text
     console.log(timeTravelled)
     var customerTime = document.createElement('h1')
-    customerTime.textContent = "You are expected to pick up your order in: " + timeTravelled;
+    customerTime.textContent = "You are expected to pick up your order in: " + timeTravelled + ".";
     timePrinted.append(customerTime)
+    finalSubmitButton.addEventListener('click', sendTheMail)
+    function sendTheMail(){
+      Email.send({
+      SecureToken : "9a616175-336a-43c3-93f3-00164d685c35",
+      To : 'triplemeggs@outlook.com',
+      From : "triplemfarmeggs@gmail.com",
+      Subject : "Order Up!",
+      Body : timeTravelled + "." + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
+      }).then(finalSubmitButton.textContent = "Thank You! Your order has been submitted. See you soon!")}
   })
 }
   var autocomplete = new google.maps.places.Autocomplete(searchBar)
   autocomplete.bindTo('bounds', map)
 }
 
-finalSubmitButton.addEventListener('click', sendTheMail)
-function sendTheMail(){
-  finalSubmitButton.textContent = "Thank You! Your order has been sent. see you soon!"
+
+
   
-  Email.send({
-  SecureToken:"c7379b0d-c90c-46bc-b834-12b3016e4f0f",
-  To: 'triplemeggs@gmail.com',
-  From: 'triplemeggs@gmail.com',
-  Subject: 'ORDER UP!',
-  Body: "Customer Due to arrive soon",
-}).then()}
