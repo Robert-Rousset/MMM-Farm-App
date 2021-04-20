@@ -182,18 +182,16 @@ function calcRoute(){
     function sendTheMail(){
       Email.send({
       SecureToken : "9a616175-336a-43c3-93f3-00164d685c35",
-      To : 'map_of_cydonia@live.com',
+      To : 'triplemeggs@outlook.com',
       From : "triplemfarmeggs@gmail.com",
       Subject : "Order Up!",
-      Body : customerTime.textContent + "\n" + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
+      Body : timeTravelled + "\n" + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
       }).then(finalSubmitButton.textContent = "Thank You! Your order has been submitted. See you soon!")}
   })
 }
   var autocomplete = new google.maps.places.Autocomplete(searchBar)
   autocomplete.bindTo('bounds', map)
 }
-
-
 
 
 
