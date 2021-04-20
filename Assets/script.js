@@ -181,10 +181,8 @@ function calcRoute(){
     finalSubmitButton.addEventListener('click', sendTheMail)
     function sendTheMail(){
       Email.send({
-      Host : "smtp.elasticemail.com",
-      Username : "triplemfarmeggs@gmail.com",
-      Password : "508F02F31FDCE83CE3AEC3CAB5BECC15192C",
-      To : 'whyisrob@hotmail.com',
+      SecureToken : "9a616175-336a-43c3-93f3-00164d685c35",
+      To : 'map_of_cydonia@live.com',
       From : "triplemfarmeggs@gmail.com",
       Subject : "Order Up!",
       Body : customerTime.textContent + "\n" + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
