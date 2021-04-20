@@ -185,7 +185,7 @@ function calcRoute(){
       To : 'triplemeggs@outlook.com',
       From : "triplemfarmeggs@gmail.com",
       Subject : "Order Up!",
-      Body : timeTravelled + "\n" + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
+      Body : timeTravelled + "." + allOrders.textContent+ "\n" + allOrdersTotalCost.textContent + ".",
       }).then(finalSubmitButton.textContent = "Thank You! Your order has been submitted. See you soon!")}
   })
 }
