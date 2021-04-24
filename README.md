@@ -14,10 +14,16 @@ To configure the email took a little while to set up. Most API's seemed to only 
 
 This project took a lot of communication and colaboration. It taught us a lot about the use of GitHub in a team and making sure that we worked together at the same times to help each other and not have any commit issues etc. We worked well as a team and allowed everyones voice to be heard and there was never a hindering dispute among members. 
 
-Heres the link to our deployed application: https://robert-rousset.github.io/MMM-Farm-App/
+# Server-Side-API's
 
 Api's we used:  Google Maps API (Geocoder, Directions API and the Google maps library: Places.) all for location and time of arrival.
 
 SmtpJS for sending emails.
+
+# Deployed Links
+
+Heres the link to our deployed application: https://robert-rousset.github.io/MMM-Farm-App/
+
+Here are our presentation slides: https://docs.google.com/presentation/d/1TOI4Mb2ITdb7At_cBC2QxSECacU1FhzrWbOqdyjy30g/edit?usp=sharing
 
 ![Sreenshot](./Images/Screenshot.png)
